@@ -3,6 +3,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
+import java.util.Arrays;
 
 public class Main {
 
@@ -20,7 +21,7 @@ public class Main {
 
         System.out.println("Hashmap: " +ReturnElementHashmap(3,"{1=9wN, 2=pTxG, 3=VqM, 4=Jb6, 5=eFA}"));
 
-
+        System.out.println("Arraylist: " + ReplaceStringArray(7 ,"[wwJY, ggH, zPE, wpAP, 3wdh, 2gK, lAO, q83, Crc, qng]", "Dfl"));
 
     }
 
@@ -136,8 +137,6 @@ public class Main {
             map.put(k, v);
         }
         return (String) map.get(index);
-        
-
         /* 
         {
             "id": "8d1c499f-78e8-457e-b7e7-f54baacb1fe9",
@@ -150,15 +149,29 @@ public class Main {
         */
 
     }
-    /*
-          ,
-          {
+
+    public static String ReplaceStringArray(int index, String arrayList, String replacer){
+        /*
+         {
             "id": "070a2078-7672-495a-9624-5b962232fa9e",
             "investigation": "Replace string at given index in arraylist",
             "investigationParameters": "{\"index\":\"7\",\"arrayList\":\"[wwJY, ggH, zPE, wpAP, 3wdh, 2gK, lAO, q83, Crc, qng]\",\"replacement\":\"Dfl\"}",
             "attemptsRemaining": "1",
             "outcome": null
-          },
+          }
+        */
+        ArrayList array = new ArrayList<String>();
+        String str = arrayList.replaceAll("[\\[,\\]]", "");
+        for(String s : str.split(" ")){
+            System.out.println(s);
+            array.add(s);
+        }
+        array.set(7, replacer);
+        return array.toString();
+    }
+    /*
+          ,
+         ,
           {
             "id": "4b2d80ba-89a8-45f4-9814-145b95607763",
             "investigation": "Find the missing numbers in the sequence. Return them as a comma-separated string",
