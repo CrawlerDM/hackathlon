@@ -2,6 +2,7 @@ import java.util.Base64;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 
 public class Main {
 
@@ -16,6 +17,8 @@ public class Main {
 
         // opdracht 0a8e88b8-7e58-4184-aed9-6e709d1c6e7a
         System.out.println("Perfect number on place 3: " + PerfectNumber(3));
+
+        System.out.println("Hashmap: " +ReturnElementHashmap(3,"{1=9wN, 2=pTxG, 3=VqM, 4=Jb6, 5=eFA}"));
 
 
 
@@ -85,7 +88,6 @@ public class Main {
             i++;
         }
         return perfect;
-
         /*
          {
             "id": "0a8e88b8-7e58-4184-aed9-6e709d1c6e7a",
@@ -94,12 +96,8 @@ public class Main {
             "attemptsRemaining": "1",
             "outcome": null
           }
-        
         */
-
-
     }
-
     private static List<Integer> GetDelers(int getal){
         List delers = new ArrayList<Integer>();
         for( int i = 1; i < getal ; i++){
@@ -110,38 +108,50 @@ public class Main {
         return delers;
     }
 
-/*
-
-    {
-        "caseId": "91bc45fa-5612-4e49-bcc4-97306ed05d0a",
-        "investigations": [
-         ,
-          },
-          */
 
     public static  String reverse(String string) {
-
         StringBuilder sb = new StringBuilder(string);
         sb.reverse();
         return sb.toString();
-    }
-    /*
-          {
+
+        /*
+        {
             "id": "fe936f1e-e538-4e6d-bfa0-18f7e372495b",
             "investigation": "Reverse the following String",
             "investigationParameters": "iZlYzSo8xOGkuhf9LRlJ8kQulRG2uNJRazhc1QLxwlUEwhhgCXB7fMNEls6Hx4Ksy43eCr0QtAMvm79jEnJxVfWEKkpLdtnKAXY6S922yu8n",
             "attemptsRemaining": "1",
             "outcome": null
-          },
+          }
+        */
+    }
 
 
-          {
+    public static String ReturnElementHashmap(int index, String hashmap){
+
+        HashMap map = new HashMap<Integer, String>();
+        String str = hashmap.replaceAll("[{},]", "");
+        for( String s :str.split(" ")){
+            int k = Integer.parseInt(s.split("=")[0]);
+            String v = s.split("=")[1];
+            map.put(k, v);
+        }
+        return (String) map.get(index);
+        
+
+        /* 
+        {
             "id": "8d1c499f-78e8-457e-b7e7-f54baacb1fe9",
             "investigation": "Return element at index of the given hashmap",
             "investigationParameters": "{\"index\":\"3\",\"hashmap\":\"{1=9wN, 2=pTxG, 3=VqM, 4=Jb6, 5=eFA}\"}",
             "attemptsRemaining": "1",
             "outcome": null
-          },
+          }
+        
+        */
+
+    }
+    /*
+          ,
           {
             "id": "070a2078-7672-495a-9624-5b962232fa9e",
             "investigation": "Replace string at given index in arraylist",
