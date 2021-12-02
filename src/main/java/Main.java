@@ -10,6 +10,7 @@ public class Main {
         //  
         System.out.println("String to Hex: " + StringToHex("WgARKpgTJxG"));
         System.out.println("Decode: " + Decode("MkhscEJuVjMyMERYZm9jaWNSbQ=="));
+        System.out.println("Reverse: " + reverse("iZlYzSo8xOGkuhf9LRlJ8kQulRG2uNJRazhc1QLxwlUEwhhgCXB7fMNEls6Hx4Ksy43eCr0QtAMvm79jEnJxVfWEKkpLdtnKAXY6S922yu8n"));
 
 
 
@@ -81,6 +82,15 @@ public class Main {
             "attemptsRemaining": "1",
             "outcome": null
           },
+          */
+
+    public static  String reverse(String string) {
+
+        StringBuilder sb = new StringBuilder(string);
+        sb.reverse();
+        return sb.toString();
+    }
+    /*
           {
             "id": "fe936f1e-e538-4e6d-bfa0-18f7e372495b",
             "investigation": "Reverse the following String",
@@ -88,6 +98,8 @@ public class Main {
             "attemptsRemaining": "1",
             "outcome": null
           },
+
+
           {
             "id": "8d1c499f-78e8-457e-b7e7-f54baacb1fe9",
             "investigation": "Return element at index of the given hashmap",
@@ -152,6 +164,7 @@ public class Main {
             "outcome": null
 
             */
+
 }
 
 
