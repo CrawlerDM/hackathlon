@@ -13,6 +13,9 @@ public class Main {
         Repo repo = new Repo();
         //System.out.println(repo.getCeases().result().bodyAsString());
         System.out.println(repo.getPictureUrl());
+        repo.getGroups();
+
+
 
         // opdracht 13ccaf43-9454-4b49-bea8-85696a01e285
         //  
@@ -23,7 +26,7 @@ public class Main {
         // opdracht 0a8e88b8-7e58-4184-aed9-6e709d1c6e7a
         System.out.println("Perfect number on place 3: " + PerfectNumber(3));
 
-        System.out.println("Hashmap: " +ReturnElementHashmap(3,"{1=9wN, 2=pTxG, 3=VqM, 4=Jb6, 5=eFA}"));
+        //System.out.println("Hashmap: " +ReturnElementHashmap(3,"{1=9wN, 2=pTxG, 3=VqM, 4=Jb6, 5=eFA}"));
 
 
 
@@ -130,7 +133,7 @@ public class Main {
         */
     }
 
-*/
+
     public static  String returnIndexHashMap(String string) {
          string = "{\"index\":\"3\",\"hashmap\":\"{1=9wN, 2=pTxG, 3=VqM, 4=Jb6, 5=eFA}\"}";
         StringBuilder sb = new StringBuilder(string);
@@ -224,7 +227,7 @@ public class Main {
 
             */
 
-}
+
 
 
 

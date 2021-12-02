@@ -10,9 +10,16 @@ import io.vertx.ext.web.codec.BodyCodec;
 
 public class Repo {
     private final Vertx vertex = Vertx.vertx();
+
     private final WebClient webClient = WebClient.create(vertex);
 
 
+
+    public void getGroups(){
+
+        System.out.println(webClient.post(443,"https://htf.bewire.org/","6a2a6ada-303c-40c7-a87a-9b9370030e8f").ssl(true)
+                .as(BodyCodec.jsonObject()).send().onComplete(res-> System.out.println(res.result().bodyAsString())));
+    }
 
     public Future<HttpResponse<Buffer>> getCeases() {
         //return "https://randomuser.me/api/portraits/med/men/96.jpg";
