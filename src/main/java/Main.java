@@ -1,3 +1,5 @@
+import Program.Repo;
+
 import java.util.Base64;
 import java.nio.charset.StandardCharsets;
 
@@ -5,6 +7,9 @@ public class Main {
 
 
     public static void main(String[] args) {
+        Repo repo = new Repo();
+        //System.out.println(repo.getCeases().result().bodyAsString());
+        System.out.println(repo.getPictureUrl());
 
         // opdracht 13ccaf43-9454-4b49-bea8-85696a01e285
         //  
@@ -98,6 +103,15 @@ public class Main {
             "attemptsRemaining": "1",
             "outcome": null
           },
+
+*/
+    public static  String returnIndexHashMap(String string) {
+         string = "{\"index\":\"3\",\"hashmap\":\"{1=9wN, 2=pTxG, 3=VqM, 4=Jb6, 5=eFA}\"}";
+        StringBuilder sb = new StringBuilder(string);
+        sb.reverse();
+        return sb.toString();
+    }
+    /*
 
 
           {

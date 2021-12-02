@@ -1,25 +1,46 @@
 package Program;
+import io.vertx.core.Future;
+import io.vertx.core.Vertx;
+import io.vertx.core.buffer.Buffer;
+import io.vertx.core.json.JsonObject;
+import io.vertx.ext.web.client.HttpResponse;
+import io.vertx.ext.web.client.WebClient;
+import io.vertx.ext.web.codec.BodyCodec;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.http.HttpClient;
 
 public class Repo {
-    URL url = new URL("http://example.com");
-    HttpURLConnection con;
+    private final Vertx vertex = Vertx.vertx();
+    private final WebClient webClient = WebClient.create(vertex);
 
-    {
-        try {
-            con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+    public Future<HttpResponse<Buffer>> getCeases() {
+        //return "https://randomuser.me/api/portraits/med/men/96.jpg";
+
+        System.out.println("test");
+
+        return webClient.post(443,"https://htf.bewire.org","/case/")
+                .ssl(true).sendJsonObject(new JsonObject().put("teamId","6a2a6ada-303c-40c7-a87a-9b9370030e8f")).onSuccess(HttpResponse::bodyAsJsonObject);
+
     }
 
-    public Repo() throws MalformedURLException {
+
+    public Future<String> getPictureUrl() {
+        //return "https://randomuser.me/api/portraits/med/men/96.jpg";
+
+
+
+        return webClient.get(443,"randomuser.me","/api/")
+                .ssl(true)
+                .as(BodyCodec.jsonObject())
+                .send()
+                .map(res->res.body())
+                .map(json->json.getJsonArray("results"))
+                .map(json->json.getJsonObject(0))
+                .map(json->json.getJsonObject("picture"))
+                .map(json->json.getString("medium"));
+
+
+
     }
 }
