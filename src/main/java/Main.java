@@ -1,3 +1,6 @@
+import java.util.Base64;
+import java.nio.charset.StandardCharsets;
+
 public class Main {
 
 
@@ -5,7 +8,11 @@ public class Main {
 
         // opdracht 13ccaf43-9454-4b49-bea8-85696a01e285
         //  
-        System.out.println(StringToHex("WgARKpgTJxG"));
+        System.out.println("String to Hex: " + StringToHex("WgARKpgTJxG"));
+        System.out.println("Decode: " + Decode("MkhscEJuVjMyMERYZm9jaWNSbQ=="));
+
+
+
     }
 
 
@@ -46,6 +53,19 @@ public class Main {
     }
 
 
+    public static String Decode(String string){
+        /*
+        {
+            "id": "9c803f8a-140d-4a67-a34e-6b6ebbdf3d95",
+            "investigation": "Decode the following String. It uses a quite common encoding, find out which!",
+            "investigationParameters": "MkhscEJuVjMyMERYZm9jaWNSbQ==",
+            "attemptsRemaining": "10",
+            "outcome": null
+          }
+        */
+        return new String(Base64.getDecoder().decode(string), StandardCharsets.UTF_8);
+    }
+
 /*
 
     {
@@ -53,13 +73,7 @@ public class Main {
         "investigations": [
          ,
           ,
-          {
-            "id": "9c803f8a-140d-4a67-a34e-6b6ebbdf3d95",
-            "investigation": "Decode the following String. It uses a quite common encoding, find out which!",
-            "investigationParameters": "MkhscEJuVjMyMERYZm9jaWNSbQ==",
-            "attemptsRemaining": "10",
-            "outcome": null
-          },
+          ,
           {
             "id": "0a8e88b8-7e58-4184-aed9-6e709d1c6e7a",
             "investigation": "What is the Perfect Number in the nth position (1-based)?",
