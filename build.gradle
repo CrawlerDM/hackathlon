@@ -12,6 +12,14 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+// https://mvnrepository.com/artifact/io.vertx/vertx-web
+    implementation 'io.vertx:vertx-web:4.2.1'
+    // https://mvnrepository.com/artifact/io.vertx/vertx-core
+    implementation 'io.vertx:vertx-core:4.2.1'
+
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.3'
+
 }
 
 test {
