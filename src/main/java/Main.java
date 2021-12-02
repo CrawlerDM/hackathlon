@@ -1,5 +1,7 @@
 import java.util.Base64;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -10,6 +12,9 @@ public class Main {
         //  
         System.out.println("String to Hex: " + StringToHex("WgARKpgTJxG"));
         System.out.println("Decode: " + Decode("MkhscEJuVjMyMERYZm9jaWNSbQ=="));
+
+        // opdracht 0a8e88b8-7e58-4184-aed9-6e709d1c6e7a
+        System.out.println("Perfect number on place 3: " + PerfectNumber(3));
 
 
 
@@ -34,11 +39,7 @@ public class Main {
 
         String out = new String();
         for( int i = 0; i < string.length(); i++){
-            
-            
             out += Integer.toHexString((int) string.charAt(i)) + " ";
-            
-
         }
         return out.trim();
         /*
@@ -66,21 +67,54 @@ public class Main {
         return new String(Base64.getDecoder().decode(string), StandardCharsets.UTF_8);
     }
 
+
+    public static int PerfectNumber(int nth){
+        int aantal = 0;
+        int i = 1;
+        int perfect = 0; 
+        while(aantal < nth){
+            int sum = 0;
+            for( int deler : GetDelers(i)){
+                sum += deler;
+            }
+            if(sum == i){
+                aantal++;
+                perfect = i;
+            }
+            i++;
+        }
+        return perfect;
+
+        /*
+         {
+            "id": "0a8e88b8-7e58-4184-aed9-6e709d1c6e7a",
+            "investigation": "What is the Perfect Number in the nth position (1-based)?",
+            "investigationParameters": "{\"nth element\":\"3\"}",
+            "attemptsRemaining": "1",
+            "outcome": null
+          }
+        
+        */
+
+
+    }
+
+    private static List<Integer> GetDelers(int getal){
+        List delers = new ArrayList<Integer>();
+        for( int i = 1; i < getal ; i++){
+            if( getal%i == 0){
+                delers.add(i);
+            }
+        }
+        return delers;
+    }
+
 /*
 
     {
         "caseId": "91bc45fa-5612-4e49-bcc4-97306ed05d0a",
         "investigations": [
          ,
-          ,
-          ,
-          {
-            "id": "0a8e88b8-7e58-4184-aed9-6e709d1c6e7a",
-            "investigation": "What is the Perfect Number in the nth position (1-based)?",
-            "investigationParameters": "{\"nth element\":\"3\"}",
-            "attemptsRemaining": "1",
-            "outcome": null
-          },
           {
             "id": "fe936f1e-e538-4e6d-bfa0-18f7e372495b",
             "investigation": "Reverse the following String",
